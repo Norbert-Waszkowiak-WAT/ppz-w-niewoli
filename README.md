@@ -5,7 +5,7 @@
 
 
 2. Skład zespołu
-
+ 
 3B
 Jan Wawrzonek
 Igor Tatko
