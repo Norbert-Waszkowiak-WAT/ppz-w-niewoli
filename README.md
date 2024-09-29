@@ -6,16 +6,29 @@
 
 2. Skład zespołu
 
+3B
+Jan Wawrzonek
+Igor Tatko
+Krzysztof Paulski
+
 3. Cel główny projektu
+
+Gra będzie polegała na wykonywaniu różnych zadań w internacie woli a jako utrudnienie będą różni przeciwnicy.
 
 4. Zakres funkcjonalności
 
+  Moduły:
+    1. Menu
+    2. Mapa
+    3. Player/NPCs
+    4. Items i interakcje
+
 5. Technologie
-Języki programowania:
+Game engine: Unity albo godot
 
 6. Architektura systemu
 
-Etap 1:
+Etap 1:z
 
 Etap 2:
 
