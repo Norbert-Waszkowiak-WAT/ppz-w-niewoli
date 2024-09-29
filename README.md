@@ -1,41 +1,72 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=16106673&assignment_repo_type=AssignmentRepo)
-# ppz_empty_with_gitignore
+# ppz-example
 
-1. Tytuł projektu
+### 1. Tytuł projektu
+#### "Five nights at dormitory's"
 
+### 2. Skład zespołu
+**Klasa 3b:**
+- **Igor Tatko**  
+- **Krzysztof Paulski**  
+- **Janek Wawrzonek**
 
-2. Skład zespołu
- 
-3B
-Jan Wawrzonek
-Igor Tatko
-Krzysztof Paulski
-
-3. Cel główny projektu
-
+### 3. Cel główny projektu
 Gra będzie polegała na wykonywaniu różnych zadań w internacie woli a jako utrudnienie będą różni przeciwnicy.
 
-4. Zakres funkcjonalności
+### 4. Zakres funkcjonalności
 
-  Moduły:
-    1. Menu
-    2. Mapa
-    3. Player/NPCs
-    4. Items i interakcje
+**Moduły:**
+1. **Menu**:  
+   
+2. **Mapa**:  
+   
+3. **Gracz/NPCty**:  
 
-5. Technologie
-Game engine: Unity albo godot
+4. **Interakcje z światem**:  
 
-6. Architektura systemu
+**Dodatkowe funkcjonalności:**
 
-Etap 1:z
+### 5. Technologie
+**Game engine**
+   - Unity albo Godot
 
-Etap 2:
+**Narzędzia:**
+   - Blender (modele i animacje)
+   - Git (kontrola wersji).
+   - Gimp (grafiki i tekstury)
+     
+### 6. Harmonogram prac dla 4 etapów
 
-Etap 3:
+**Etap 1:**  
+**Zadania:**
+   - Zaprojetkowanie mapy
+   - Zaprojektowanie postaci gracza
+   - Implementacja poruszania się
 
-Etap 4:
+**Etap 2:**  
+**Zadania:**
+   - animacja postaci
+   - dodanie wrogów i ich animacji
+   - menu
 
-8. Kryteria sukcesu
+**Etap 3:**  
+**Zadania:**
+   - Interakcje z przedmiotami (rzeczy w rękach)
+   - interakcje z otoczeniem (drzwi, lampy, itp.)
+   - AI przeciwników
+   - Dodanie tasków
 
-9. Potencjalne ryzyka
+**Etap 4:**  
+**Zadania:**
+   - próba stworzenia proceduralnego generowania świata
+   - dodanie drugiego pięra
+   - więcej misji
+   - DOdanie dźwięków =
+
+### 7. Kryteria sukcesu
+   - Gra się włącza i nie kraszuje
+   - AI przeciwników działa
+   - Wszystkie animacje działaj
+
+### 8. Potencjalne ryzyka
+   - Uczenie wszystkiego się od nowa
+   - trudność w wykrywaniu gracza przez przeciwników
