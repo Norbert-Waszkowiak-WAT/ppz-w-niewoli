@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b8bqfehhqewum"
-path="res://.godot/imported/hend.blend-fd888aaa85698f7152c95dbf22251a92.scn"
+uid="uid://cmsogsr0hkc7d"
+path="res://.godot/imported/book_pattern_1k.blend-7c0dc933f131f7ab78b4351e23fc242a.scn"
 
 [deps]
 
-source_file="res://hend.blend"
-dest_files=["res://.godot/imported/hend.blend-fd888aaa85698f7152c95dbf22251a92.scn"]
+source_file="res://Textures/book_pattern_1k.blend"
+dest_files=["res://.godot/imported/book_pattern_1k.blend-7c0dc933f131f7ab78b4351e23fc242a.scn"]
 
 [params]
 

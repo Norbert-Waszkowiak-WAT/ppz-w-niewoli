@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://xxabj45opprc"
-path="res://.godot/imported/human.blend-e9295b386c791669057caa75254bd0cf.scn"
+uid="uid://c5t0a6enldnt7"
+path="res://.godot/imported/hend.blend-beae8d68e6a8f9d86d1f619020721f6c.scn"
 
 [deps]
 
-source_file="res://human.blend"
-dest_files=["res://.godot/imported/human.blend-e9295b386c791669057caa75254bd0cf.scn"]
+source_file="res://Models/Player/hend.blend"
+dest_files=["res://.godot/imported/hend.blend-beae8d68e6a8f9d86d1f619020721f6c.scn"]
 
 [params]
 
