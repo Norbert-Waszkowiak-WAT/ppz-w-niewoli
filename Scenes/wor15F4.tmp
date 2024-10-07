@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cub227i2717l7"]
+[gd_scene load_steps=7 format=3 uid="uid://cub227i2717l7"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_8bkbh"]
 
@@ -15,9 +15,6 @@ sky = SubResource("Sky_nksiu")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ut1i"]
-albedo_color = Color(0.363423, 0.7362, 0, 1)
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gfps7"]
 height = 1.8
 
@@ -27,20 +24,14 @@ points = PackedVector3Array(0.1072, -0.455979, -0.482912, 0.080844, 0.485261, 0.
 [node name="World" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.565478, 0.0959578, 0.819162, 0.655922, 0.65444, 0.37613, -0.5, 0.75, -0.433013, 13.4366, 10.5702, 7.71579)
+transform = Transform3D(-0.565478, 0.0959578, 0.819162, 0.655922, 0.65444, 0.37613, -0.5, 0.75, -0.433013, 0.236087, 3.51055, 3.04014)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xhcht")
 
-[node name="Kloc1" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.39738, 0.391424, -2.56221)
-use_collision = true
-size = Vector3(4.48, 0.95, 4.79)
-
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.396393)
-material_override = SubResource("StandardMaterial3D_6ut1i")
 use_collision = true
 size = Vector3(50, 0.02, 50)
 
@@ -56,7 +47,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00884271, 1.3826, 0.0136279
 shape = SubResource("ConvexPolygonShape3D_j07n0")
 
 [node name="Head" type="Node3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.13654, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player/Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0378275, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97605, 0)
