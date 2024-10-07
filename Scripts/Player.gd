@@ -4,6 +4,9 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
+const BOB_FREQ = 2
+const BOB_AMP = 0.08
+var t_bob = 0.0
 
 
 @onready var head = $Head
@@ -41,4 +44,14 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
+	#head bob
+	t_bob += delta * velocity.length() * float(is_on_floor())
+	camera.transform.origin = _headbob(t_bob)
+
 	move_and_slide()
+	
+	
+func _headbob(time) -> Vector3:
+	var pos = Vector3.ZERO
+	pos.y = sin(time* BOB_FREQ) * BOB_AMP
+	return pos
