@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://clgwokinm0phy"]
+
+[ext_resource type="Script" path="res://Script/gracz.gd" id="1_ixgp6"]
+[ext_resource type="Script" path="res://Script/kamera.gd" id="2_1hadf"]
+[ext_resource type="Script" path="res://Script/świalowysrywacz.gd" id="3_boduy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_23xpa"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_iccio"]
+
+[node name="Gracz" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+script = ExtResource("1_ixgp6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.379702, 0)
+shape = SubResource("CapsuleShape3D_23xpa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.414459, 0)
+mesh = SubResource("CapsuleMesh_iccio")
+
+[node name="head" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.7058, 0)
+script = ExtResource("2_1hadf")
+
+[node name="SWIALOWYSRYWACZ" type="SpotLight3D" parent="CharacterBody3D/head"]
+transform = Transform3D(0.111111, 0, 0, 0, 0.111111, 0, 0, 0, 0.111111, 0, -0.0329284, -0.342051)
+visible = false
+light_energy = 10.0
+spot_range = 150.0
+spot_angle = 30.0
+script = ExtResource("3_boduy")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/head"]
