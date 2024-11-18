@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 var ogSPEED
-var SPEED = 3.0
+var SPEED = 3.1
 var wyczerpanie = 0.45
 var odpoczynek = 0.2
 var superodpoczynek = 0.5
