@@ -1,0 +1,336 @@
+[gd_scene load_steps=12 format=3 uid="uid://bp4jqqlowr7xn"]
+
+[ext_resource type="PackedScene" uid="uid://clgwokinm0phy" path="res://Scenes/gracz.tscn" id="1_kr71n"]
+[ext_resource type="PackedScene" uid="uid://bklaphpsi4sqw" path="res://Scenes/dupa.tscn" id="1_qbf7v"]
+[ext_resource type="PackedScene" uid="uid://umjkwey6ui4r" path="res://animacje/dzwi.tscn" id="3_hii6p"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_khg21"]
+sky_top_color = Color(0.674558, 0.815279, 0.867305, 1)
+sky_horizon_color = Color(0.718639, 0.74607, 0.750076, 1)
+ground_horizon_color = Color(0.718639, 0.74607, 0.750076, 1)
+
+[sub_resource type="Sky" id="Sky_sfhx8"]
+sky_material = SubResource("ProceduralSkyMaterial_khg21")
+
+[sub_resource type="Environment" id="Environment_5tivt"]
+background_mode = 2
+sky = SubResource("Sky_sfhx8")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_34nop"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tkufo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_24jqs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nvyv8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qrydi"]
+
+[node name="level" type="Node3D"]
+
+[node name="dupa" parent="." instance=ExtResource("1_qbf7v")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5tivt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.717516, 0.000642273, -0.696541, 0.107326, 0.987955, 0.111469, 0.688223, -0.154738, 0.708805, -187.994, 113.167, 0)
+light_energy = 0.623
+light_indirect_energy = 2.455
+shadow_enabled = true
+
+[node name="floor" type="StaticBody3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="floor2" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_tkufo")
+
+[node name="Gracz" parent="." instance=ExtResource("1_kr71n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1757, 1.25007, 11.8088)
+
+[node name="grupa" type="Node3D" parent="."]
+
+[node name="pokoj2" type="Node3D" parent="grupa"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.4173, 0, 5.06146)
+
+[node name="dzwi" parent="grupa/pokoj2" instance=ExtResource("3_hii6p")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -8.77426, 2.02886, 7.22658)
+
+[node name="sciana2" type="StaticBody3D" parent="grupa/pokoj2"]
+transform = Transform3D(-8.85917e-08, 0, 0.1, 0, 3.42175, 0, -2.02674, 0, -4.37114e-09, -15.7754, 2.31997, 9.69646)
+
+[node name="floor2" type="MeshInstance3D" parent="grupa/pokoj2/sciana2"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa/pokoj2/sciana2"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_tkufo")
+
+[node name="sciana 3" type="StaticBody3D" parent="grupa/pokoj2"]
+transform = Transform3D(-8.85917e-08, 0, 0.1, 0, 3.42175, 0, -2.02674, 0, -4.37114e-09, -8.97692, 2.31997, 9.69646)
+
+[node name="czesc1" type="MeshInstance3D" parent="grupa/pokoj2/sciana 3"]
+transform = Transform3D(3.14965, 0, -6.21725e-15, 0, 1, 0, 2.04636e-12, 0, 5, -0.86, 0, 0)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa/pokoj2/sciana 3/czesc1"]
+shape = SubResource("BoxShape3D_24jqs")
+
+[node name="czesc2" type="MeshInstance3D" parent="grupa/pokoj2/sciana 3"]
+transform = Transform3D(0.549839, 0, -6.21725e-15, 0, 1, 0, 2.27374e-13, 0, 5, 1.97808, -0.0409051, 7.62939e-06)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa/pokoj2/sciana 3/czesc2"]
+shape = SubResource("BoxShape3D_nvyv8")
+
+[node name="czesc3" type="MeshInstance3D" parent="grupa/pokoj2/sciana 3"]
+transform = Transform3D(2.51402, 0, -2.07212e-12, 0, 0.165984, 0, 1.81899e-12, 0, 4.99999, 1.02343, 0.440053, 2.28882e-05)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa/pokoj2/sciana 3/czesc3"]
+shape = SubResource("BoxShape3D_qrydi")
+
+[node name="sciana1" type="StaticBody3D" parent="grupa/pokoj2"]
+transform = Transform3D(1.30048, 0, 0, 0, 3.42175, 0, 0, 0, 0.1, -12.2518, 2.31997, 4.86926)
+
+[node name="floor2" type="MeshInstance3D" parent="grupa/pokoj2/sciana1"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa/pokoj2/sciana1"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_tkufo")
+
+[node name="sciana4" type="StaticBody3D" parent="grupa/pokoj2"]
+transform = Transform3D(1.30048, 0, 0, 0, 3.42175, 0, 0, 0, 0.1, -12.2518, 2.31997, 14.5406)
+
+[node name="floor2" type="MeshInstance3D" parent="grupa/pokoj2/sciana4"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa/pokoj2/sciana4"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_tkufo")
+
+[node name="pokoj" type="Node3D" parent="grupa"]
+
+[node name="dzwi" parent="grupa/pokoj" instance=ExtResource("3_hii6p")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -8.77426, 2.02886, 7.22658)
+
+[node name="sciana2" type="StaticBody3D" parent="grupa/pokoj"]
+transform = Transform3D(-8.85917e-08, 0, 0.1, 0, 3.42175, 0, -2.02674, 0, -4.37114e-09, -15.7754, 2.31997, 9.69646)
+
+[node name="floor2" type="MeshInstance3D" parent="grupa/pokoj/sciana2"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa/pokoj/sciana2"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_tkufo")
+
+[node name="sciana 3" type="StaticBody3D" parent="grupa/pokoj"]
+transform = Transform3D(-8.85917e-08, 0, 0.1, 0, 3.42175, 0, -2.02674, 0, -4.37114e-09, -8.97692, 2.31997, 9.69646)
+
+[node name="czesc1" type="MeshInstance3D" parent="grupa/pokoj/sciana 3"]
+transform = Transform3D(3.14965, 0, -6.21725e-15, 0, 1, 0, 2.04636e-12, 0, 5, -0.86, 0, 0)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa/pokoj/sciana 3/czesc1"]
+shape = SubResource("BoxShape3D_24jqs")
+
+[node name="czesc2" type="MeshInstance3D" parent="grupa/pokoj/sciana 3"]
+transform = Transform3D(0.549839, 0, -6.21725e-15, 0, 1, 0, 2.27374e-13, 0, 5, 1.97808, -0.0409051, 7.62939e-06)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa/pokoj/sciana 3/czesc2"]
+shape = SubResource("BoxShape3D_nvyv8")
+
+[node name="czesc3" type="MeshInstance3D" parent="grupa/pokoj/sciana 3"]
+transform = Transform3D(2.51402, 0, -2.07212e-12, 0, 0.165984, 0, 1.81899e-12, 0, 4.99999, 1.02343, 0.440053, 2.28882e-05)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa/pokoj/sciana 3/czesc3"]
+shape = SubResource("BoxShape3D_qrydi")
+
+[node name="sciana1" type="StaticBody3D" parent="grupa/pokoj"]
+transform = Transform3D(1.30048, 0, 0, 0, 3.42175, 0, 0, 0, 0.1, -12.2518, 2.31997, 4.86926)
+
+[node name="floor2" type="MeshInstance3D" parent="grupa/pokoj/sciana1"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa/pokoj/sciana1"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_tkufo")
+
+[node name="sciana4" type="StaticBody3D" parent="grupa/pokoj"]
+transform = Transform3D(1.30048, 0, 0, 0, 3.42175, 0, 0, 0, 0.1, -12.2518, 2.31997, 14.5406)
+
+[node name="floor2" type="MeshInstance3D" parent="grupa/pokoj/sciana4"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa/pokoj/sciana4"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_tkufo")
+
+[node name="grupa2" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.40953, 0, -1.62171)
+
+[node name="pokoj2" type="Node3D" parent="grupa2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.4173, 0, 5.06146)
+
+[node name="dzwi" parent="grupa2/pokoj2" instance=ExtResource("3_hii6p")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -8.77426, 2.02886, 12.2887)
+
+[node name="sciana2" type="StaticBody3D" parent="grupa2/pokoj2"]
+transform = Transform3D(-8.85917e-08, 0, 0.1, 0, 3.42175, 0, -2.02674, 0, -4.37114e-09, -15.7754, 2.31997, 16.9988)
+
+[node name="floor2" type="MeshInstance3D" parent="grupa2/pokoj2/sciana2"]
+transform = Transform3D(5, 0, -8.88178e-16, 0, 1, 0, 4.54747e-13, 0, 5, 3.53305, 0, 0)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa2/pokoj2/sciana2"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_tkufo")
+
+[node name="sciana 3" type="StaticBody3D" parent="grupa2/pokoj2"]
+transform = Transform3D(-8.85917e-08, 0, -0.1, 0, 3.42175, 0, 2.02674, 0, -4.37114e-09, -8.97692, 2.31997, 9.85192)
+
+[node name="czesc1" type="MeshInstance3D" parent="grupa2/pokoj2/sciana 3"]
+transform = Transform3D(3.14965, 0, -5.32907e-15, 0, 1, 0, 2.04636e-12, 0, 5, -0.86, 0, 0)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa2/pokoj2/sciana 3/czesc1"]
+shape = SubResource("BoxShape3D_24jqs")
+
+[node name="czesc2" type="MeshInstance3D" parent="grupa2/pokoj2/sciana 3"]
+transform = Transform3D(0.549839, 0, -5.32907e-15, 0, 1, 0, 2.27374e-13, 0, 5, 1.96763, -0.0409051, 1.52588e-05)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa2/pokoj2/sciana 3/czesc2"]
+shape = SubResource("BoxShape3D_nvyv8")
+
+[node name="czesc3" type="MeshInstance3D" parent="grupa2/pokoj2/sciana 3"]
+transform = Transform3D(2.51402, 0, -2.07212e-12, 0, 0.165984, 0, 1.81899e-12, 0, 4.99999, 1.02343, 0.440053, 2.28882e-05)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa2/pokoj2/sciana 3/czesc3"]
+shape = SubResource("BoxShape3D_qrydi")
+
+[node name="sciana1" type="StaticBody3D" parent="grupa2/pokoj2"]
+transform = Transform3D(1.30048, 0, 0, 0, 3.42175, 0, 0, 0, 0.1, -12.2518, 2.31997, 4.86926)
+
+[node name="floor2" type="MeshInstance3D" parent="grupa2/pokoj2/sciana1"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa2/pokoj2/sciana1"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_tkufo")
+
+[node name="sciana4" type="StaticBody3D" parent="grupa2/pokoj2"]
+transform = Transform3D(1.30048, 0, 0, 0, 3.42175, 0, 0, 0, 0.1, -12.2518, 2.31997, 14.5406)
+
+[node name="floor2" type="MeshInstance3D" parent="grupa2/pokoj2/sciana4"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0.720637)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa2/pokoj2/sciana4"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_tkufo")
+
+[node name="pokoj" type="Node3D" parent="grupa2"]
+
+[node name="dzwi" parent="grupa2/pokoj" instance=ExtResource("3_hii6p")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -8.77426, 2.02886, 7.23618)
+
+[node name="sciana2" type="StaticBody3D" parent="grupa2/pokoj"]
+transform = Transform3D(-8.85917e-08, 0, 0.1, 0, 3.42175, 0, -2.02674, 0, -4.37114e-09, -15.7754, 2.31997, 9.69646)
+
+[node name="floor2" type="MeshInstance3D" parent="grupa2/pokoj/sciana2"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa2/pokoj/sciana2"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_tkufo")
+
+[node name="sciana 3" type="StaticBody3D" parent="grupa2/pokoj"]
+transform = Transform3D(-8.85917e-08, 0, 0.1, 0, 3.42175, 0, -2.02674, 0, -4.37114e-09, -8.97692, 2.31997, 9.69646)
+
+[node name="czesc1" type="MeshInstance3D" parent="grupa2/pokoj/sciana 3"]
+transform = Transform3D(3.14965, 0, -6.21725e-15, 0, 1, 0, 2.04636e-12, 0, 5, -0.86, 0, 0)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa2/pokoj/sciana 3/czesc1"]
+shape = SubResource("BoxShape3D_24jqs")
+
+[node name="czesc2" type="MeshInstance3D" parent="grupa2/pokoj/sciana 3"]
+transform = Transform3D(0.549839, 0, -6.21725e-15, 0, 1, 0, 2.27374e-13, 0, 5, 1.97808, -0.0409051, 7.62939e-06)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa2/pokoj/sciana 3/czesc2"]
+shape = SubResource("BoxShape3D_nvyv8")
+
+[node name="czesc3" type="MeshInstance3D" parent="grupa2/pokoj/sciana 3"]
+transform = Transform3D(2.51402, 0, -2.07212e-12, 0, 0.165984, 0, 1.81899e-12, 0, 4.99999, 1.02343, 0.440053, 2.28882e-05)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa2/pokoj/sciana 3/czesc3"]
+shape = SubResource("BoxShape3D_qrydi")
+
+[node name="sciana1" type="StaticBody3D" parent="grupa2/pokoj"]
+transform = Transform3D(1.30048, 0, 0, 0, 3.42175, 0, 0, 0, 0.1, -12.2518, 2.31997, 4.86926)
+
+[node name="floor2" type="MeshInstance3D" parent="grupa2/pokoj/sciana1"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa2/pokoj/sciana1"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_tkufo")
+
+[node name="sciana4" type="StaticBody3D" parent="grupa2/pokoj"]
+transform = Transform3D(1.30048, 0, 0, 0, 3.42175, 0, 0, 0, 0.1, -12.2518, 2.31997, 14.5406)
+
+[node name="floor2" type="MeshInstance3D" parent="grupa2/pokoj/sciana4"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_34nop")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grupa2/pokoj/sciana4"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_tkufo")
